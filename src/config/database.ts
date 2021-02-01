@@ -7,12 +7,12 @@ import { DATABASE_OPEN_LOG } from './../constants/logs';
 // Mongoose config options for connection
 const mongooseOptions: mongoose.ConnectOptions = {
     useNewUrlParser: true,
-    useUnifiedTopology:true,
+    useUnifiedTopology: true,
     useCreateIndex: true
 }
 
 // Mongoose connection
-mongoose.connect(config.DB.URI, mongooseOptions);
+mongoose.connect('mongodb://127.0.0.1:27017/PerseoDB', mongooseOptions);
 const connection = mongoose.connection;
 
 
