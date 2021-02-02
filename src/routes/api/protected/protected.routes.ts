@@ -1,9 +1,14 @@
 import { Router } from 'express';
-import { addEducationToUser } from '../../../controllers/education.controller';
-import { verifyAddEducation } from './../../../middlewares/education/addEducation.middleware';
+import { addEducationToUser, updateEducation } from '../../../controllers/education.controller';
+import { addWorkToUser, updateWorkToUser } from '../../../controllers/work.controller';
+import { verifyAddEducation, verifyUpdateEducation } from './../../../middlewares/education/addEducation.middleware';
+import { verifyAddWork, verifyUpdateWork } from './../../../middlewares/work/addWork.middleware';
 
 const router = Router();
 
-router.get("/education", verifyAddEducation, addEducationToUser)
+router.post("/education", verifyAddEducation, addEducationToUser)
+router.patch("/education", verifyUpdateEducation, updateEducation)
+router.post("/work", verifyAddWork, addWorkToUser)
+router.patch("/work", verifyUpdateWork, updateWorkToUser)
 
 export default router
