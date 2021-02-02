@@ -3,11 +3,12 @@ import { db_isEmailRegistered, db_newUser } from "../repositories/user.repositor
 import { IRegister } from './../interfaces/IRegister';
 import { SIGNUP_EMAIL_REGISTERED } from './../constants/errors';
 import { USER_CREATED } from "../constants/logs";
+import { serv_login } from './../services/auth.service';
 
 // Register
 export const signUp = async (req: Request, res: Response): Promise<Response> => {
-
     try {
+        // comprobar contraseña doble
         const { user, education, work }: IRegister = req.body;
 
         const isRegistered = await db_isEmailRegistered(user.email);
@@ -16,7 +17,7 @@ export const signUp = async (req: Request, res: Response): Promise<Response> => 
 
 
         await db_newUser(user)
-        
+
 
         return res.status(201).json({ result: USER_CREATED });
 
@@ -24,3 +25,9 @@ export const signUp = async (req: Request, res: Response): Promise<Response> => 
         return res.status(400).json({ error: e.message });
     }
 };
+
+export const signIn = async (req: Request, res: Response): Promise<Response> => {
+    const { status, msg } = await serv_login(req.body)
+
+    return res.status(status).json({result: msg})
+}
