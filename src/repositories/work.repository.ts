@@ -4,3 +4,7 @@ export const db_addWork = async (work: IWork): Promise<void> => {
     const newWork = new Work(work)
     await newWork.save()
 }
+
+export const db_updateWork = async (work: IWork) => {
+    await Work.findOneAndUpdate({ _id: work._id }, work)
+}
