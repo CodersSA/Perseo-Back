@@ -12,3 +12,6 @@ export const DATABASE_ERROR = "Error with database connection.";
 
 export const DATA_MISSING = "Required data missing.";
 export const ID_ERROR = "Required data missing.";
+
+
+export const MISSING_TOKEN = "Unauthorized request."
