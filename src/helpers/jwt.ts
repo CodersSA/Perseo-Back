@@ -24,6 +24,12 @@ export const getIdFromPayload = (token: string) => {
     return id;
 };
 
+export const verifyUserAccount = (userID: string, bearerToken: string) => {
+    const tokenID = getIdFromPayload(bearerToken)
+
+    return userID == tokenID
+};
+
 // export const checkAdmin  = async (token: string) => {
 //     if (token !== undefined){
 //         console.log('dentro')
