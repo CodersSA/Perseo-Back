@@ -8,7 +8,7 @@ import passport from "passport";
 
 // import apiRoutes from "../routes/api/api.routes";
 import authRoutes from "../routes/api/auth/auth.routes";
-// import protectedRoutes from "../routes/api/admin/admin.routes";
+import protectedRoutes from "../routes/api/protected/protected.routes";
 // import courseRoutes from '../routes/api/course/course.routes';
 
 // Initializations
@@ -28,6 +28,7 @@ app.use(passport.initialize());
 // Routes
 // app.use("/api", apiRoutes)
 app.use("/api/auth", authRoutes)
+app.use("/api/protected", protectedRoutes)
 // app.use("/api/course", courseRoutes);
 // app.use("/api/admin", protectedRoutes)
 

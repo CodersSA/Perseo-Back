@@ -11,5 +11,13 @@ export const verifySignUpRequest = (req: Request, res: Response, next: NextFunct
     if (typeof user.email == 'undefined' || typeof user.password == 'undefined')
         return res.status(400).json({ error: DATA_MISSING });
 
+    if (education) {
+        
+    }
+
+    if (work) {
+
+    }
+
     next();
 }
