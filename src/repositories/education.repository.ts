@@ -6,5 +6,9 @@ export const db_addEducation = async (education: IEducation): Promise<void> => {
 }
 
 export const db_updateEducation = async (education: IEducation) => {
-    await Education.findOneAndUpdate({_id: education._id}, education)
+    await Education.findOneAndUpdate({ _id: education._id }, education)
+}
+
+export const db_getEducations = async (userID: string): Promise<IEducation[]> => {
+    return await Education.find({ userID: userID })
 }
