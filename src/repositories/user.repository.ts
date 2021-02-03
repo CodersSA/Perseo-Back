@@ -18,3 +18,7 @@ export const db_isEmailRegistered = async (email: string): Promise<boolean> => {
 export const db_userInfo = async (email: string, projection: any): Promise<IUser> => {
     return User.findOne({ email: email }, projection)
 }
+
+export const db_userById = async (_id: string, projection: any = {}): Promise<IUser> => {
+    return User.findOne({ _id: _id }, projection)
+}
